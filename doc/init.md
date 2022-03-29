@@ -61,3 +61,8 @@ module.exports = {
   extends: ['@commitlint/config-conventional']
 }
 ```
+## ElementPlus
+```
+npm i element-plus
+npm install -D unplugin-element-plus
+```
