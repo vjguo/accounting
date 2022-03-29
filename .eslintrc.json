@@ -23,7 +23,7 @@
       "html": {
         "void": "never",
         "normal": "never",
-        "component": "always"
+        "component": "never"
       }
     }]
   }
