@@ -55,7 +55,7 @@ npx mrm@2 lint-staged
 npm install --save-dev @commitlint/config-conventional @commitlint/cli
 npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'
 ```
-.commitlint.config.js
+commitlint.config.ts
 ```
 module.exports = {
   extends: ['@commitlint/config-conventional']
