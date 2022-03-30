@@ -1,7 +1,6 @@
-<script setup lang="ts"></script>
-
 <template>
-  <div id="container"></div>
+  <router-view></router-view>
+  <!-- <div id="container"></div> -->
 </template>
 
-<style></style>
+<script setup lang="ts"></script>
