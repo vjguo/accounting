@@ -66,3 +66,11 @@ module.exports = {
 npm i element-plus
 npm install -D unplugin-element-plus
 ```
+## Vue-Router
+```
+npm install vue-router@4
+```
+## SCSS
+```
+npm install --save-dev sass
+```
