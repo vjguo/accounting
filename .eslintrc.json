@@ -16,14 +16,24 @@
     "plugin:vue/vue3-recommended"
   ],
   "rules": {
+    "eol-last": 2,
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-var-requires": 0,
+    "vue/singleline-html-element-content-newline": "off",
     "vue/html-self-closing": ["error", {
       "html": {
         "void": "never",
         "normal": "never",
         "component": "never"
+      }
+    }],
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": {
+        "max": 3
+      },
+      "multiline": {
+        "max": 1
       }
     }]
   }
