@@ -10,7 +10,12 @@
             <el-input v-model="form.username" placeholder="用户名"></el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input v-model="form.password" type="password" placeholder="密码"></el-input>
+            <el-input
+              v-model="form.password"
+              type="password"
+              placeholder="密码"
+              show-password
+            ></el-input>
           </el-form-item>
           <el-button type="primary" class="login-interface__button" @click="handleSubmit">登录</el-button>
         </el-form>
@@ -26,15 +31,17 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
+// data
 const form = reactive({
   username: '',
   password: ''
 })
 
+// methods
 const handleSubmit = () => {
   // TODO: submit logic
   console.log(`username: ${form.username} passowrd: ${form.password}`)
-  router.push('/home')
+  router.replace('/home')
 }
 
 </script>
@@ -43,7 +50,7 @@ const handleSubmit = () => {
 .login-page {
   position: relative;
   height: 100%;
-  background-color: #f6f6f6;
+  background-image: linear-gradient(to left top, var(--el-color-primary-light-1), var(--el-color-primary-light-9));
 
   &__interface {
     position: absolute;

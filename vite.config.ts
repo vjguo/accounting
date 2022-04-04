@@ -8,10 +8,11 @@ export default defineConfig({
   plugins: [vue(), ElementPlus()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
+      '@': resolve(__dirname, 'src/renderer')
     }
   },
   server: {
+    port: 8080,
     proxy: {
       '/api': {
         target: 'http://localhost:3000',

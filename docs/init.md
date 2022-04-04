@@ -122,3 +122,21 @@ npm install pinia
 ```
 npm install axios
 ```
+
+## Electron
+
+```
+npm install electron --save-dev
+```
+
+## electron-builder
+
+```
+npm install electron-builder --save-dev
+```
+
+## esbuild
+
+```
+npm i esbuild --save-dev
+```

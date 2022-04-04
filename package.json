@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --port 8080",
-    "build": "vue-tsc --noEmit && vite build",
+    "dev": "node ./scripts/dev",
+    "build": "node ./scripts/release",
     "preview": "vite preview",
     "prepare": "husky install"
   },
@@ -23,6 +23,9 @@
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "@vitejs/plugin-vue": "^2.2.0",
+    "electron": "^18.0.1",
+    "electron-builder": "^22.14.13",
+    "esbuild": "^0.14.30",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",

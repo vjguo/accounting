@@ -1,5 +1,6 @@
-dist
-node_modules
+/dist
+/release
+/node_modules
 *.scss
 *.json
 *.md
