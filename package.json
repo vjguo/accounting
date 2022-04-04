@@ -23,6 +23,7 @@
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "@vitejs/plugin-vue": "^2.2.0",
+    "chokidar": "^3.5.3",
     "electron": "^18.0.1",
     "electron-builder": "^22.14.13",
     "esbuild": "^0.14.30",

@@ -11,6 +11,7 @@ const dev = {
   server: null,
   serverPort: 8080,
   electronProcess: null,
+  isReload: false,
   async createServer() {
     const options = {
       configFile: false,
@@ -68,18 +69,35 @@ const dev = {
       { cwd: process.cwd() }
     )
     this.electronProcess.on('close', () => {
-      this.server.close()
-      process.exit()
+      if (!this.isReload) {
+        this.server.close()
+        process.exit()
+      }
     })
     this.electronProcess.stdout.on('data', data => {
       data = data.toString()
       console.log(data)
     })
   },
+  runMainFilesMonitor() {
+    const chokidar = require('chokidar')
+    chokidar.watch(path.join(process.cwd(), 'src/main')).on('change', () => {
+      if (this.electronProcess && !this.electronProcess.killed && !this.isReload) {
+        this.electronProcess.on('exit', async () => {
+          await this.buildMain()
+          this.createElectronProcess()
+          this.isReload = false
+        })
+        this.isReload = true
+        this.electronProcess.kill('SIGKILL')
+      }
+    })
+  },
   async start() {
     await this.createServer()
     await this.buildMain()
     this.createElectronProcess()
+    this.runMainFilesMonitor()
   }
 }
 dev.start()

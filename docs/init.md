@@ -140,3 +140,8 @@ npm install electron-builder --save-dev
 ```
 npm i esbuild --save-dev
 ```
+
+## chokidar
+```
+npm install chokidar  --save-dev
+```
