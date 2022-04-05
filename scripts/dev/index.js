@@ -5,7 +5,9 @@ const esbuild = require('esbuild')
 const { spawn } = require('child_process')
 const os = require('os')
 const fs = require('fs')
-const ElementPlus = require('unplugin-element-plus/vite')
+const AutoImport = require('unplugin-auto-import/vite')
+const Components = require('unplugin-vue-components/vite')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 const dev = {
   server: null,
@@ -16,7 +18,15 @@ const dev = {
     const options = {
       configFile: false,
       root: process.cwd(),
-      plugins: [vue(), ElementPlus()],
+      plugins: [
+        vue(),
+        AutoImport({
+          resolvers: [ElementPlusResolver()]
+        }),
+        Components({
+          resolvers: [ElementPlusResolver()]
+        })
+      ],
       resolve: {
         alias: {
           '@': path.resolve(process.cwd(), 'src/renderer')

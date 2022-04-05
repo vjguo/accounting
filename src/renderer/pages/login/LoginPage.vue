@@ -17,7 +17,9 @@
               show-password
             ></el-input>
           </el-form-item>
-          <el-button type="primary" class="login-interface__button" @click="handleSubmit">登录</el-button>
+          <el-button type="primary" class="login-interface__button" @click="handleSubmit">
+            登录
+          </el-button>
         </el-form>
       </div>
     </div>
@@ -25,7 +27,6 @@
 </template>
 
 <script setup lang="ts">
-import { ElForm, ElFormItem, ElInput, ElButton } from 'element-plus'
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -43,14 +44,17 @@ const handleSubmit = () => {
   console.log(`username: ${form.username} passowrd: ${form.password}`)
   router.replace('/home')
 }
-
 </script>
 
 <style lang="scss" scoped>
 .login-page {
   position: relative;
   height: 100%;
-  background-image: linear-gradient(to left top, var(--el-color-primary-light-1), var(--el-color-primary-light-9));
+  background-image: linear-gradient(
+    to left top,
+    var(--el-color-primary-light-1),
+    var(--el-color-primary-light-9)
+  );
 
   &__interface {
     position: absolute;

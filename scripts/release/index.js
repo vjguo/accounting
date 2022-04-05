@@ -3,7 +3,9 @@ const path = require('path')
 const esbuild = require('esbuild')
 const os = require('os')
 const fs = require('fs')
-const ElementPlus = require('unplugin-element-plus/vite')
+const AutoImport = require('unplugin-auto-import/vite')
+const Components = require('unplugin-vue-components/vite')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 const release = {
   getEnvScript() {
@@ -39,7 +41,14 @@ const release = {
         minify: true,
         outDir: path.join(process.cwd(), 'release/bundled')
       },
-      plugins: [ElementPlus()]
+      plugins: [
+        AutoImport({
+          resolvers: [ElementPlusResolver()]
+        }),
+        Components({
+          resolvers: [ElementPlusResolver()]
+        })
+      ]
     }
     await vite.build(options)
   },

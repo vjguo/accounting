@@ -3,7 +3,7 @@
 ## 创建工程
 
 ```
-npm init vite@latest oa --template vue
+npm init vite@latest oa --template vue-ts
 ```
 
 ## ESLint
@@ -33,6 +33,7 @@ npm i eslint-plugin-vue vue-eslint-parser -D
 settings.json:
 
 ```
+"editor.formatOnSave": true,
 "editor.codeActionsOnSave": {
   "source.fixAll.eslint": true
 }
@@ -54,6 +55,11 @@ npm i prettier eslint-config-prettier eslint-plugin-prettier -D
 
 安装 VSCode 插件 Prettier
 
+settings.json:
+
+```
+"editor.formatOnSave": true
+```
 ### 编写规则
 
 .prettierrc.js
@@ -96,7 +102,23 @@ module.exports = {
 
 ```
 npm i element-plus
-npm install -D unplugin-element-plus
+npm install -D unplugin-vue-components unplugin-auto-import
+
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+export default {
+  plugins: [
+    // ...
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+  ],
+}
 ```
 
 ## Vue-Router
@@ -143,5 +165,10 @@ npm i esbuild --save-dev
 
 ## chokidar
 ```
-npm install chokidar  --save-dev
+npm install chokidar --save-dev
+```
+
+## font-awesome
+```
+npm i font-awesome
 ```

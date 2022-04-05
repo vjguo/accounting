@@ -4,3 +4,6 @@
 *.scss
 *.json
 *.md
+
+auto-imports.d.ts
+components.d.ts
