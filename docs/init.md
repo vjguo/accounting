@@ -60,6 +60,7 @@ settings.json:
 ```
 "editor.formatOnSave": true
 ```
+
 ### 编写规则
 
 .prettierrc.js
@@ -164,11 +165,22 @@ npm i esbuild --save-dev
 ```
 
 ## chokidar
+
 ```
 npm install chokidar --save-dev
 ```
 
-## font-awesome
+## @element-plus/icons-vue
+
 ```
-npm i font-awesome
+npm install @element-plus/icons-vue
+```
+
+## font-awesome
+
+```
+npm i --save @fortawesome/fontawesome-svg-core
+npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/free-regular-svg-icons
+npm i --save @fortawesome/vue-fontawesome@prerelease
 ```
