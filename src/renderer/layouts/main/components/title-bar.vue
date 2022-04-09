@@ -4,15 +4,15 @@
       <h1 class="title-bar__logo">Accouting</h1>
     </div>
     <div class="title-bar__right">
-      <title-menu></title-menu>
-      <window-controller></window-controller>
+      <title-bar-menu></title-bar-menu>
+      <title-bar-controller></title-bar-controller>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import WindowController from './components/window-controller.vue'
-import TitleMenu from './components/title-menu.vue'
+import TitleBarController from './title-bar-controller.vue'
+import TitleBarMenu from './title-bar-menu.vue'
 </script>
 
 <style lang="scss" scoped>

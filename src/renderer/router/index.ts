@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import DefaultLayout from '@/layouts/default/default-layout.vue'
+import MainLayout from '@/layouts/main/main-layout.vue'
 import LoginPage from '@/pages/login/login-page.vue'
 
 const router = createRouter({
@@ -7,7 +7,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: DefaultLayout,
+      component: MainLayout,
       redirect: '/login',
       children: [
         {

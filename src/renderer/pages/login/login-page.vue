@@ -2,7 +2,7 @@
   <div class="login-page">
     <div class="login-page__interface login-interface">
       <div class="login-interface__header">
-        <h1 class="login-interface__logo">OA</h1>
+        <h1 class="login-interface__logo">Accounting</h1>
       </div>
       <div class="login-interface__body">
         <el-form :model="form" label-position="left">
