@@ -8,7 +8,7 @@ else
     include: path.join(process.cwd(), 'scripts/common/installer.nsh'),
     createDesktopShortcut: true,
     createStartMenuShortcut: true,
-    shortcutName: 'oa',
+    shortcutName: 'accounting',
     installerIcon: '../resource/unrelease/icon.ico',
     uninstallerIcon: '../resource/unrelease/icon.ico',
     installerHeader: '../resource/unrelease/icon.ico',

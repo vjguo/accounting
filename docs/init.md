@@ -3,7 +3,7 @@
 ## 创建工程
 
 ```
-npm init vite@latest oa --template vue-ts
+npm init vite@latest accounting --template vue-ts
 ```
 
 ## ESLint

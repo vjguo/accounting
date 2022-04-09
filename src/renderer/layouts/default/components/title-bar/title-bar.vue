@@ -1,7 +1,7 @@
 <template>
   <div class="title-bar">
     <div class="title-bar__left">
-      <h1 class="title-bar__logo">OA</h1>
+      <h1 class="title-bar__logo">Accouting</h1>
     </div>
     <div class="title-bar__right">
       <title-menu></title-menu>
