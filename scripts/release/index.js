@@ -1,4 +1,5 @@
 const vite = require('vite')
+const vue = require('@vitejs/plugin-vue')
 const path = require('path')
 const esbuild = require('esbuild')
 const os = require('os')
@@ -42,13 +43,21 @@ const release = {
         outDir: path.join(process.cwd(), 'release/bundled')
       },
       plugins: [
+        vue(),
         AutoImport({
           resolvers: [ElementPlusResolver()]
         }),
         Components({
           resolvers: [ElementPlusResolver()]
         })
-      ]
+      ],
+      resolve: {
+        alias: {
+          '@': path.resolve(process.cwd(), 'src/renderer'),
+          '@main': path.resolve(process.cwd(), 'src/main'),
+          '@common': path.resolve(process.cwd(), 'src/common')
+        }
+      }
     }
     await vite.build(options)
   },

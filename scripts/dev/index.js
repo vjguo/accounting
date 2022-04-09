@@ -29,7 +29,9 @@ const dev = {
       ],
       resolve: {
         alias: {
-          '@': path.resolve(process.cwd(), 'src/renderer')
+          '@': path.resolve(process.cwd(), 'src/renderer'),
+          '@main': path.resolve(process.cwd(), 'src/main'),
+          '@common': path.resolve(process.cwd(), 'src/common')
         }
       },
       server: {

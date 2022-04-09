@@ -12,7 +12,9 @@
     "isolatedModules": true,
     "lib": ["esnext", "dom"],
     "paths": {
-      "@/*": ["./src/renderer/*"]
+      "@/*": ["./src/renderer/*"],
+      "@main/*": ["./src/main/*"],
+      "@common/*": ["./src/common/*"]
     },
     "types": ["vite/client"]
   },
