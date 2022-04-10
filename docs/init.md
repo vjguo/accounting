@@ -99,11 +99,34 @@ module.exports = {
 }
 ```
 
+## unplugin-vue-components
+
+```
+npm install -D 'unplugin-vue-components'
+
+// tsconfig.json
+{
+  // ...
+  includes: ["components.d.ts"]
+}
+```
+
+## unplugin-auto-import
+
+```
+npm install -D 'unplugin-auto-import'
+
+// tsconfig.json
+{
+  // ...
+  includes: ["auto-imports.d.ts"]
+}
+```
+
 ## ElementPlus
 
 ```
 npm i element-plus
-npm install -D unplugin-vue-components unplugin-auto-import
 
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'

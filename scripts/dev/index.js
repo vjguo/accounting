@@ -24,6 +24,7 @@ const dev = {
           resolvers: [ElementPlusResolver()]
         }),
         Components({
+          dirs: [],
           resolvers: [ElementPlusResolver()]
         })
       ],

@@ -48,6 +48,7 @@ const release = {
           resolvers: [ElementPlusResolver()]
         }),
         Components({
+          dirs: [],
           resolvers: [ElementPlusResolver()]
         })
       ],
