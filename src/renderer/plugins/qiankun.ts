@@ -2,10 +2,10 @@ import { registerMicroApps, start } from 'qiankun'
 
 registerMicroApps([
   {
-    name: 'reactApp',
+    name: 'base',
     entry: '//localhost:8081',
     container: '#container',
-    activeRule: '/base'
+    activeRule: '/#/base'
   }
 ])
 
