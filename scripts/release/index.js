@@ -2,8 +2,11 @@ const vite = require('vite')
 const vue = require('@vitejs/plugin-vue')
 const path = require('path')
 const esbuild = require('esbuild')
+const { promisify } = require('util')
+const { exec } = require('child_process')
 const os = require('os')
 const fs = require('fs')
+const fse = require('fs-extra')
 const AutoImport = require('unplugin-auto-import/vite')
 const Components = require('unplugin-vue-components/vite')
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
@@ -35,12 +38,14 @@ const release = {
     fs.writeFileSync(outfile, js)
   },
   async buildRender() {
+    // main app
     const options = {
       root: process.cwd(),
+      base: '/main/',
       build: {
         enableEsbuild: true,
         minify: true,
-        outDir: path.join(process.cwd(), 'release/bundled')
+        outDir: path.join(process.cwd(), 'release/bundled/main')
       },
       plugins: [
         vue(),
@@ -60,7 +65,17 @@ const release = {
         }
       }
     }
-    await vite.build(options)
+
+    // micro apps
+    const microAppsPath = `${process.cwd()}/micro-apps`
+
+    // build
+    const promisifiedExec = promisify(exec)
+    const results = await Promise.all([
+      vite.build(options),
+      promisifiedExec('npm run build', { cwd: microAppsPath + '/accounting-base' })
+    ])
+    console.log(results[1].stdout)
   },
   buildModule() {
     const pkgJsonPath = path.join(process.cwd(), 'package.json')
@@ -100,6 +115,7 @@ const release = {
     return builder.build(options)
   },
   async start() {
+    fse.removeSync(process.cwd() + '/release')
     await this.buildRender()
     await this.buildMain()
     await this.buildModule()

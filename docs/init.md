@@ -207,3 +207,9 @@ npm i --save @fortawesome/free-solid-svg-icons
 npm i --save @fortawesome/free-regular-svg-icons
 npm i --save @fortawesome/vue-fontawesome@prerelease
 ```
+
+## fs-extra
+
+```
+npm i fs-extra
+```
