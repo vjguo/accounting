@@ -18,12 +18,9 @@ export function registerProtocol() {
   protocol.registerBufferProtocol('app', (request, response) => {
     let pathName = new URL(request.url).pathname
     const extension = path.extname(pathName).toLowerCase()
-    if (!extension) return
-    pathName = decodeURI(pathName)
-    const filePath = path.join(__dirname, pathName)
-    fs.readFile(filePath, (error, data) => {
-      if (error) return
-      let mimeType = ''
+    let mimeType = ''
+    if (extension) {
+      pathName = decodeURI(pathName)
       if (extension === '.js') {
         mimeType = 'text/javascript'
       } else if (extension === '.html') {
@@ -34,6 +31,16 @@ export function registerProtocol() {
         mimeType = 'image/svg+xml'
       } else if (extension === '.json') {
         mimeType = 'application/json'
+      }
+    } else {
+      pathName = '/main/index.html'
+      mimeType = 'text/html'
+    }
+    const filePath = path.join(__dirname, pathName)
+    fs.readFile(filePath, (error, data) => {
+      if (error) {
+        response({})
+        return
       }
       response({ mimeType, data })
     })

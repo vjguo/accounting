@@ -15,9 +15,9 @@ export function createMainWindow() {
     }
   })
   if (app.isPackaged) {
-    mainWindow.loadURL(`app://./index.html/`)
+    mainWindow.loadURL(`app://./`)
   } else {
-    mainWindow.loadURL(`http://localhost:${process.env.WEB_PORT}`)
+    mainWindow.loadURL(`http://localhost:${process.env.WEB_PORT}/`)
   }
 
   mainWindow.on('maximize', () => {

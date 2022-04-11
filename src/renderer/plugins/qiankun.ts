@@ -3,9 +3,9 @@ import { registerMicroApps, start } from 'qiankun'
 registerMicroApps([
   {
     name: 'base',
-    entry: '//localhost:8081',
+    entry: process.env.NODE_ENV === 'development' ? '//localhost:8081' : '//./base/index.html',
     container: '#container',
-    activeRule: '/#/base'
+    activeRule: '/base'
   }
 ])
 
