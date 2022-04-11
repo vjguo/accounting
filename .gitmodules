@@ -1,0 +1,3 @@
+[submodule "micro-apps/accounting-base"]
+	path = micro-apps/accounting-base
+	url = https://github.com/vjguo/accounting-base.git
