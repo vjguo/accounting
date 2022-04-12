@@ -19,7 +19,13 @@ const dev = {
       configFile: false,
       root: process.cwd(),
       plugins: [
-        vue(),
+        vue({
+          template: {
+            compilerOptions: {
+              isCustomElement: tag => tag.startsWith('a-')
+            }
+          }
+        }),
         AutoImport({
           resolvers: [ElementPlusResolver()]
         }),

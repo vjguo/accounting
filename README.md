@@ -15,6 +15,7 @@ This project(Accounting) is the entry of a series of projects in a mirco-fronten
 - [x] Vue3 + Vue-Router + Pinia + Element-Plus
 - [x] ESlint + Prettier
 - [x] Husky + Lint-Staged + Commitlint
+- [x] Web Components
 
 ### Soon
 

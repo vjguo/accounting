@@ -7,7 +7,8 @@
   "env": {
     "node" : true,
     "es6": true,
-    "browser": true
+    "browser": true,
+    "vue/setup-compiler-macros": true
   },
   "extends": [
     "eslint:recommended",
@@ -28,13 +29,6 @@
         "component": "never"
       }
     }],
-    "vue/max-attributes-per-line": ["error", {
-      "singleline": {
-        "max": 3
-      },
-      "multiline": {
-        "max": 1
-      }
-    }]
+    "vue/max-attributes-per-line": "off"
   }
 }
