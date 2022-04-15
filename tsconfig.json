@@ -1,4 +1,9 @@
 {
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
   "compilerOptions": {
     "target": "esnext",
     "useDefineForClassFields": true,
@@ -23,7 +28,9 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "scripts/**/*.ts",
     "components.d.ts",
     "auto-imports.d.ts",
+    "commitlint.config.ts"
   ]
 }

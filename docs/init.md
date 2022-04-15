@@ -91,10 +91,10 @@ npm install --save-dev @commitlint/config-conventional @commitlint/cli
 npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'
 ```
 
-commitlint.config.js
+commitlint.config.ts
 
 ```
-module.exports = {
+export default {
   extends: ['@commitlint/config-conventional']
 }
 ```
@@ -212,4 +212,10 @@ npm i --save @fortawesome/vue-fontawesome@prerelease
 
 ```
 npm i fs-extra
+```
+
+## ts-node
+
+```
+npm i ts-node -D
 ```

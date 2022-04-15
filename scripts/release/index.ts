@@ -1,22 +1,28 @@
-const vite = require('vite')
-const vue = require('@vitejs/plugin-vue')
-const path = require('path')
-const esbuild = require('esbuild')
-const { promisify } = require('util')
-const { exec } = require('child_process')
-const os = require('os')
-const fs = require('fs')
-const fse = require('fs-extra')
-const AutoImport = require('unplugin-auto-import/vite')
-const Components = require('unplugin-vue-components/vite')
-const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
+import { build as viteBuild } from 'vite'
+import { build as electronBuild } from 'electron-builder'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'
+import esbuild from 'esbuild'
+import { promisify } from 'util'
+import { exec } from 'child_process'
+import os from 'os'
+import fs from 'fs'
+import fse from 'fs-extra'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+import env from './env'
+import extraResources from '../common/extra-resources'
+import win from '../common/win-config'
+import mac from '../common/mac-config'
+import nsis from '../common/nsis-config'
 
 const release = {
   getEnvScript() {
-    const env = require('./env.js')
     let script = ''
     for (const v in env) {
-      script += `process.env.${v}="${env[v]}";`
+      script += `process.env.${v}="${env[v as keyof typeof env]}";`
     }
     script += `process.env.RES_DIR = process.resourcesPath;`
     return script
@@ -72,7 +78,7 @@ const release = {
     // build
     const promisifiedExec = promisify(exec)
     const results = await Promise.all([
-      vite.build(options),
+      viteBuild(options),
       promisifiedExec('npm run build', { cwd: microAppsPath + '/accounting-base' })
     ])
     console.log(results[1].stdout)
@@ -92,7 +98,7 @@ const release = {
     fs.mkdirSync(path.join(process.cwd(), 'release/bundled/node_modules'))
   },
   buildInstaller() {
-    const options = {
+    return electronBuild({
       config: {
         directories: {
           output: path.join(process.cwd(), 'release'),
@@ -103,16 +109,14 @@ const release = {
         productName: 'accounting',
         appId: 'com.vjguo.accounting',
         asar: true,
-        extraResources: require('../common/extra-resources.js'),
-        win: require('../common/win-config.js'),
-        mac: require('../common/mac-config.js'),
-        nsis: require('../common/nsis-config.js'),
+        extraResources,
+        win,
+        mac,
+        nsis,
         publish: [{ provider: 'generic', url: '' }]
       },
-      project: process.cwd()
-    }
-    const builder = require('electron-builder')
-    return builder.build(options)
+      projectDir: process.cwd()
+    })
   },
   async start() {
     fse.removeSync(process.cwd() + '/release')

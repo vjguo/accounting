@@ -1,21 +1,29 @@
-const vite = require('vite')
-const vue = require('@vitejs/plugin-vue')
-const path = require('path')
-const esbuild = require('esbuild')
-const { spawn } = require('child_process')
-const os = require('os')
-const fs = require('fs')
-const AutoImport = require('unplugin-auto-import/vite')
-const Components = require('unplugin-vue-components/vite')
-const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
+import { createServer } from 'vite'
+import type { ViteDevServer } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'
+import esbuild from 'esbuild'
+import { spawn } from 'child_process'
+import type { ChildProcessWithoutNullStreams } from 'child_process'
+import os from 'os'
+import fs from 'fs'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import env from './env'
+
+type extraEnv = {
+  WEB_PORT: number
+  RES_DIR: string
+} & typeof env
 
 const dev = {
-  server: null,
+  server: null as ViteDevServer | null,
   serverPort: 8080,
-  electronProcess: null,
+  electronProcess: null as ChildProcessWithoutNullStreams | null,
   isReload: false,
   async createServer() {
-    const options = {
+    this.server = await createServer({
       configFile: false,
       root: process.cwd(),
       plugins: [
@@ -51,17 +59,18 @@ const dev = {
           }
         }
       }
-    }
-    this.server = await vite.createServer(options)
+    })
     await this.server.listen()
   },
   getEnvScript() {
-    const env = require('./env.js')
-    env.WEB_PORT = this.serverPort
-    env.RES_DIR = path.join(process.cwd(), 'resource/release')
+    const extraEnv = {
+      ...env,
+      WEB_PORT: this.serverPort,
+      RES_DIR: path.join(process.cwd(), 'resource/release')
+    }
     let script = ''
-    for (const v in env) {
-      script += `process.env.${v}="${env[v]}";`
+    for (const v in extraEnv) {
+      script += `process.env.${v}="${extraEnv[v as keyof extraEnv]}";`
     }
     return script
   },
@@ -89,7 +98,7 @@ const dev = {
     )
     this.electronProcess.on('close', () => {
       if (!this.isReload) {
-        this.server.close()
+        this.server?.close()
         process.exit()
       }
     })
