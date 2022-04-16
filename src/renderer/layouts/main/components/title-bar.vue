@@ -1,7 +1,7 @@
 <template>
   <div class="title-bar">
     <div class="title-bar__left">
-      <h1 style="margin: 0 10px">Accouting</h1>
+      <h1 style="margin: 0 10px">贝壳记账</h1>
     </div>
     <div class="title-bar__right">
       <title-bar-menu></title-bar-menu>
@@ -21,6 +21,8 @@ import TitleBarMenu from './title-bar-menu.vue'
   height: 100%;
   justify-content: space-between;
   align-items: center;
+  color: var(--color-white);
+  background: var(--color-primary);
 
   &__left {
     display: flex;

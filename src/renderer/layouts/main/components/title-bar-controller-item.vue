@@ -16,7 +16,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: pink;
+    background-color: var(--color-primary-light);
   }
 }
 </style>

@@ -10,5 +10,6 @@ import SideBarMenu from './side-bar-menu.vue'
 
 <style lang="scss" scoped>
 .side-bar {
+  height: 100%;
 }
 </style>

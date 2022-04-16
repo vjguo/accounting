@@ -1,1 +1,21 @@
-@use '@/styles/variables.scss';
+:root {
+  --el-color-white: var(--color-white);
+  --el-color-black: var(--color-black);
+  --el-color-primary: var(--color-primary);
+  --el-color-success: var(--color-success);
+  --el-color-warning: var(--color-warning);
+  --el-color-danger: var(--color-danger);
+  --el-color-info: var(--color-info);
+
+  --el-color-primary-light: var(--color-primary-light);
+  --el-color-success-light: var(--color-success-light);
+  --el-color-warning-light: var(--color-warning-light);
+  --el-color-danger-light: var(--color-danger-light);
+  --el-color-info-light: var(--color-info-light);
+
+  --el-text-color-primary: var(--text-color-primary);;
+  --el-text-color-regular: var(--text-color-regular);
+  --el-text-color-secondary: var(--text-color-secondary);
+  --el-text-color-placeholder: var(--text-color-placeholder);
+  --el-text-color-disabled: var(--text-color-disabled);
+}
