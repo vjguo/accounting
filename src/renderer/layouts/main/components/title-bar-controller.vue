@@ -51,7 +51,7 @@ function closeWindow() {
 .title-bar-controller {
   display: flex;
   height: 100%;
-  margin: 0 10px;
+  padding: 0 10px;
   align-items: center;
   -webkit-app-region: none;
 }

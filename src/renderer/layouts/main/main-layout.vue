@@ -23,4 +23,8 @@ import TitleBar from './components/title-bar.vue'
 import SideBar from './components/side-bar.vue'
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#container {
+  height: 100%;
+}
+</style>

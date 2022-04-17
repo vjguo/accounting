@@ -1,7 +1,8 @@
 <template>
   <div class="title-bar">
     <div class="title-bar__left">
-      <h1 style="margin: 0 10px">贝壳记账</h1>
+      <h1 style="padding: 0 10px">贝壳记账</h1>
+      <title-bar-navigator></title-bar-navigator>
     </div>
     <div class="title-bar__right">
       <title-bar-menu></title-bar-menu>
@@ -13,6 +14,7 @@
 <script setup lang="ts">
 import TitleBarController from './title-bar-controller.vue'
 import TitleBarMenu from './title-bar-menu.vue'
+import TitleBarNavigator from './title-bar-navigator.vue'
 </script>
 
 <style lang="scss" scoped>
