@@ -40,6 +40,7 @@
 
   &__main {
     flex: 1;
+    width: 0; // https://github.com/element-plus/element-plus/issues/6202
   }
 }
 </style>

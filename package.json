@@ -6,7 +6,8 @@
     "dev": "ts-node ./scripts/dev",
     "build": "ts-node ./scripts/release",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "publish-types": "cd ./src/renderer/types & npm publish --registry https://registry.npmjs.org/"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.4",
@@ -16,6 +17,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "axios": "^0.26.1",
+    "dexie": "^3.2.1",
     "element-plus": "^2.1.7",
     "font-awesome": "^4.7.0",
     "fs-extra": "^10.0.1",

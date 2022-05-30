@@ -1,0 +1,10 @@
+{
+  "name": "@vongolajs/types-accounting",
+  "version": "1.0.9",
+  "description": "",
+  "author": "vjguo",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "dexie": "^3.2.1"
+  }
+}
